@@ -7,14 +7,14 @@ library(lme4)
 
 data = read_tsv("OE_master.txt")
 long_data = read_tsv("OE_long.txt")
-thomas = read_table("Thomas.txt")
-allen = read_table("Allen.txt")
+thomas = read.table("Thomas.txt", header=TRUE)
+allen = read.table("Allen.txt", header=TRUE)
 thomas$postnominal_genitives = thomas$postnominal_genitives/100
 allen$postnominal_genitives = allen$postnominal_genitives/100
 
 #Figure 1
 ggplot(thomas,aes(x=century, y=postnominal_genitives, size=tokens, weight=tokens)) +  
-  geom_jitter(width=0.05, heigth=0) + 
+  geom_jitter(width=0.05, heigth) + 
   coord_cartesian(ylim = c(0,1)) + 
   guides(size="none") +
   ggtitle("Thomas (1931)") +
@@ -22,19 +22,12 @@ ggplot(thomas,aes(x=century, y=postnominal_genitives, size=tokens, weight=tokens
 
 #Figure 2
 ggplot(allen,aes(x=period, y=postnominal_genitives, size=tokens, weight=tokens)) +  
-  geom_jitter(width=0.05, heigth=0) + 
+  geom_jitter(width=0.05, heigth) + 
   coord_cartesian(ylim = c(0,1)) + 
   guides(size="none") +
   ggtitle("Allen (2008)") +
   theme(plot.title = element_text(hjust = 0.5))
 
-#Figure 3
-ggplot(crisma,aes(x=century, y=postnominal_genitives, size=tokens, weight=tokens)) +  
-  geom_jitter(width=0.05, heigth=0) + 
-  coord_cartesian(ylim = c(0,1)) + 
-  guides(size="none") +
-  ggtitle("Crisma (2012)") +
-  theme(plot.title = element_text(hjust = 0.5))
 
 ##################################
 #Fig4 + Light genitive NPs
