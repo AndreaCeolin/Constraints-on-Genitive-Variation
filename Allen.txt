@@ -1,0 +1,9 @@
+period postnominal_genitives tokens
+early 46.0 13
+early 26.0 30
+early 59.0 256
+early 87.0 13
+late 23.0 24 
+late 17.0 77
+late 17.0 77
+late 14.0 3
