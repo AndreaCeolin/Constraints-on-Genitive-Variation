@@ -2,9 +2,9 @@
 
 Scripts and data employed for the paper "Constraints on Old English Genitive Variation". This directory contains:
 
-1. **OE_master.txt**: this file contains the results of the queries on the YCOE. Postnominal genitive NPs are expressed as a ratio over the total number of genitive NPs.
+1. **OE_master.txt**: this text file contains the results of the queries on the YCOE. Postnominal genitive NPs are expressed as a ratio over the total number of genitive NPs.
 
-2. **OE_long.txt**: this file contains the results of the queries on the YCOE. Each line corresponds to a genitive NP, with '1' representing postnominal genitive NPs, and '0' representing prenominal genitive NPs.
+2. **OE_long.txt**: this text file contains the results of the queries on the YCOE. Each line corresponds to a genitive NP, with '1' representing postnominal genitive NPs, and '0' representing prenominal genitive NPs.
 
 3. **Thomas.txt**: this text file contains the data from Thomas (1931), in Table2.
 
