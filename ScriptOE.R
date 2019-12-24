@@ -35,7 +35,7 @@ ggplot(allen,aes(x=period, y=postnominal_genitives, size=tokens, weight=tokens))
 
 #Figure 3a
 data3a <- data %>%
-  filter(weight=='Light', type=='ProperN', is.na(century)==FALSE, total>9)
+  filter(weight=='Light', type=='ProperN')# total>9)
 
 ggplot(data3a,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
   stat_smooth(method="lm") + 
@@ -47,7 +47,7 @@ ggplot(data3a,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
 
 #Figure 3b
 data3b <- data %>%
-  filter(weight=='Light', type!='ProperN', is.na(century)==FALSE, total>9)
+  filter(weight=='Light', type!='ProperN', total>9)
 
 ggplot(data3b,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
   stat_smooth(method="lm") + 
@@ -59,7 +59,7 @@ theme(plot.title = element_text(hjust = 0.5))
 
 #Regression analysis 3a
 short_name <- long_data %>%
-  filter(weight=="Light", type =="ProperN", is.na(century)==FALSE, total>9)
+  filter(weight=="Light", type =="ProperN") #total>9)
 
 nullm3a = lmer(postnominal ~ (1|text), data=short_name)
 m3a = lmer(postnominal ~ century + (1|text), data=short_name)
@@ -68,7 +68,7 @@ anova(nullm3a, m3a)
 
 #Regression analysis 3b
 short_noun <- long_data %>%
-  filter(weight=="Light", type =="CommonN", is.na(century)==FALSE, total>9)
+  filter(weight=="Light", type =="CommonN")# total>9)
 
 nullm3b = lmer(postnominal ~ (1|text), data=short_noun)
 m3b = lmer(postnominal~ century + (1|text), data=short_noun)
@@ -94,7 +94,7 @@ ggplot(data4a,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
 
 #Figure 4b
 data4b <- data %>%
-  filter(weight=='Modified', type!='ProperN', is.na(century)==FALSE, total>9)
+  filter(weight=='Modified', type!='ProperN') #total>9)
 
 ggplot(data4b,aes(x=century, y=postnominal_genitive, size=total, colour=type)) + 
   stat_smooth(method="lm") + 
@@ -106,7 +106,7 @@ ggplot(data4b,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
 
 #Regression analysis 4a
 mod_name <- long_data %>%
-  filter(weight=="Modified", type =="ProperN", is.na(century)==FALSE, total>9) 
+  filter(weight=="Modified", type =="ProperN") #total>9) 
 
 nullm4a = lmer(postnominal ~ (1|text), data=mod_name)
 m4a = lmer(postnominal ~ century + (1|text), data=mod_name)
@@ -115,7 +115,7 @@ anova(nullm4a, m4a)
 
 #Regression analysis 4b
 mod_noun <- long_data %>%
-  filter(weight=="Modified", type =="CommonN", is.na(century)==FALSE, total>9) 
+  filter(weight=="Modified", type =="CommonN") #total>9) 
 
 nullm4b = lmer(postnominal ~ (1|text), data=mod_noun)
 m4b = lmer(postnominal~ century + (1|text), data=mod_noun)
@@ -123,7 +123,7 @@ summary(m4b)
 anova(nullm4b, m4b)
 
 mod_det <- long_data %>%
-  filter(weight=="Modified", type =="D+CommonN", is.na(century)==FALSE, total>9) 
+  filter(weight=="Modified", type =="D+CommonN") #total>9) 
 
 nullm4bis = lmer(postnominal ~ (1|text), data=mod_det)
 m4bis = lmer(postnominal~ century + (1|text), data=mod_det)
@@ -136,7 +136,7 @@ anova(nullm4bis, m4bis)
 
 #Figure 5a
 data5a <- data %>%
-  filter(weight=='Heavy', type=='ProperN', is.na(century)==FALSE, total>9)
+  filter(weight=='Heavy', type=='ProperN', total>9)
 
 ggplot(data5a,aes(x=century, y=postnominal_genitive, size=total, colour=type)) + 
   stat_smooth(method="lm") + 
@@ -149,7 +149,7 @@ ggplot(data5a,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
 
 #Figure 5b
 data5b <- data %>%
-  filter(weight=='Heavy', type!='ProperN', is.na(century)==FALSE, total>9)
+  filter(weight=='Heavy', type!='ProperN', total>9)
 
 ggplot(data5b,aes(x=century, y=postnominal_genitive, size=total, colour=type)) + 
   stat_smooth(method="lm") + 
@@ -161,7 +161,7 @@ ggplot(data5b,aes(x=century, y=postnominal_genitive, size=total, colour=type)) +
 
 #Regression analysis 5a
 heavy_name <- long_data %>%
-  filter(weight=="Heavy", type =="ProperN", is.na(century)==FALSE, total>9) 
+  filter(weight=="Heavy", type =="ProperN", total>9) 
 
 nullm5a = lmer(postnominal ~ (1|text), data=heavy_name)
 m5a = lmer(postnominal ~ century + (1|text), data=heavy_name)
@@ -170,10 +170,10 @@ anova(nullm5a, m5a)
 
 #Regression analysis 5b
 heavy_noun <- long_data %>%
-  filter(weight=="Heavy", type =="Simple", is.na(century)==FALSE, total>9) 
+  filter(weight=="Heavy", type =="Simple", total>9) 
 
 heavy_mod <- long_data %>%
-  filter(weight=="Heavy", type =="Complex", is.na(century)==FALSE, total>9) 
+  filter(weight=="Heavy", type =="Complex", total>9) 
 
 nullm5b = lmer(postnominal ~ (1|text), data=heavy_noun)
 m5b = lmer(postnominal~ century + (1|text), data=heavy_noun)
@@ -191,3 +191,5 @@ data_test = rbind(heavy_noun, heavy_mod)
 m1=lmer(postnominal ~ century + type + (1|text), data=data_test)
 m2=lmer(postnominal ~ century + type + type*century + (1|text), data=data_test)
 
+summary(m2)
+anova(m1,m2)
