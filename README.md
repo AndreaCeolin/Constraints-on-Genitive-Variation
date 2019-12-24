@@ -12,7 +12,7 @@ Scripts and data employed for the paper "Constraints on Old English Genitive Var
 
 5. **queries**: this folder contains the output of the queries on the YCOE and the ICHP.
 
-6. **ScriptOE.R**: This R scripts replicates the graphs and the mixed effect logistic regression models of the paper.
+6. **ScriptOE.R**: This R script replicates the graphs and the mixed effect logistic regression models of the paper.
 
 
 
