@@ -195,9 +195,3 @@ m2=lmer(postnominal ~ century + type + type*century + (1|text), data=data_test)
 summary(m2)
 anova(m1,m2)
 
-
-
-data5b %>%
-  group_by(century, weight, type) %>%
-  summarize(mean = mean(postnominal_genitive)) 
-  
